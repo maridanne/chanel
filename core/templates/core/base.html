@@ -1,0 +1,45 @@
+{% load menu %}
+
+<!doctype html>
+<html>
+<head>
+    <!--  Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+    
+    <title>{% block title %}{% endblock %} | Chanel</title>
+    
+</head>
+<body>
+    <nav class="max-w-4xl mx-auto flex justify-between px-6 py-4">
+        <div class="logo">
+            <a href="{% url 'frontpage' %}"><img class="object-cover h-10 w-12" src="/media/upload/designerproduct_images/chanel_icon.png "></ a>
+        </div>
+
+        <div class="menu flex space-x-4">
+            {% menu %}
+        </div>
+    </nav>
+    <main class="max-w-4xl mx-auto px-6 py-4">
+        <div class="search float-right">
+            <form action="/search/" method="get">
+                <input class="outline-0" type="search" name="query" placeholder="Search"> 
+                <button type="submit"><img class="object-cover h-5 w-5" src="/media/upload/designerproduct_images/loupe.png "</button>
+            </form>
+        </div>
+        {% block content %}
+        {% endblock %}
+        
+    </main>
+</body>
+</html>

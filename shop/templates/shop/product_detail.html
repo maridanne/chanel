@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    {{ product.title }}
+{% endblock %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<div class="grid grid-cols-2 gap-4">
+    <div>
+        {% if product.image %}
+        <div class="image">
+            <img class="object-contain h-96 w-192" src="{{ product.image.url }}" alt="{{ product.title }}">
+        </div>
+        {% else %}
+        <div class="image">
+            <img src="/media/upload/designerproduct_images/default.jpg " alt="{{ product.title }}">
+        </div>
+        {% endif %}
+        <br>
+    </div>
+
+    <!-- ... -->
+    <div>
+        <br><br><br><br><br>
+        <h1 class="text-2xl">{{ product.title }}</h1>
+
+        <p class="text-xs text-gray-600">${{ product.price }}</p>
+
+        {% if product.description %}
+            <p class="text-justify mt-4">{{ product.description }}</p>
+        {% endif %}<br><br>
+        <section style="margin-left: 1.5cm;">
+            <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-8 rounded" href="{% url 'updateproduct' product.pk %}">UPDATE</a>
+            <span>      </span>
+            <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-8 rounded" href="{% url 'deleteproduct' product.pk %}" onclick="return confirm('Are you sure to delete this product?')">DELETE</a>
+        </section>
+    </div>
+</div>
+
+
+{% endblock %}

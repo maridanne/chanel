@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Add
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <br><br>
+    <section  class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" style="text-align: center;">
+        <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 rounded" href="{% url 'addcategory' %}">ADD CATEGORY</a>
+        <span>      </span>
+        <a class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-8 rounded" href="{% url 'addproduct' %}" >ADD PRODUCT</a>
+    </section>
+</div>
+{% endblock %}

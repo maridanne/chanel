@@ -1,0 +1,10 @@
+{% for category in categories %}
+    <a class="uppercase" href="{% url 'category-detail' category.slug %}">
+        <b>
+        {{ category.title }}
+        </b>
+    </a>
+{% endfor %}
+<p>|</p>
+<a href="{% url 'add' %}"><b>ADD</b></a>
+<a href="{% url 'user_logout' %}"><b>LOGOUT</b></a>
